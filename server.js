@@ -28,10 +28,6 @@ app.get('/', function (req, res) {
   res.send('<b> My first node app with resin.io running on PI 3 </b>');
 });
 
-app.get('/', function req, res){
-
-
-});
 
 //start a server on port 80 and log its start to our console
 var server = app.listen(80, function () {
