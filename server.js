@@ -1,26 +1,26 @@
 var express = require('express');
 var app = express();
 
+var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
+var LED = new Gpio(4, 'out');
+var blinkInterval = setInterval(blinkLED, 250);
+
 // reply to request with "Hello World!"
 app.get('/toggle_led/:pin', function (req, res) {
-pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
-  if (err) { //if an error
-    console.error('There was an error', err); //output error message to console
-  return;
+  if (LED.readSync() === 0) { //check the pin state, if the state is 0 (or off)
+    LED.writeSync(1); //set pin state to 1 (turn LED on)
   }
-  LED.writeSync(value); //turn LED on or off depending on the button state (0 or 1)
-});
+  else {
+    LED.writeSync(0); //set pin state to 0 (turn LED off)
+  }
 
-function unexportOnClose() { //function to run when exiting program
+  clearInterval(blinkInterval); // Stop blink intervals
   LED.writeSync(0); // Turn LED off
-  LED.unexport(); // Unexport LED GPIO to free resources
-  pushButton.unexport(); // Unexport Button GPIO to free resources
-};
+  LED.unexport(); // Unexport GPIO to free resources
 
-process.on('SIGINT', unexportOnClose)
+  setTimeout(endBlink, 5000);
 
 });
-
 
 
 // reply to request with "Hello World!"
