@@ -15,7 +15,8 @@
     "resin.io",
     "webserver",
     "nodejs",
-    "expressjs"
+    "expressjs",
+    "onoff"
   ],
   "author": "Shaun Mulligan <shaun@resin.io>",
   "license": "Apache-2.0",
