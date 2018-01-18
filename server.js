@@ -22,6 +22,10 @@ app.get('/toggle_led/:pin', function (req, res) {
 
 });
 
+// reply to request with "Hello World!"
+app.get('/about', function (req, res) {
+  res.send('<b> This is a resin io test </b>');
+});
 
 // reply to request with "Hello World!"
 app.get('/', function (req, res) {
