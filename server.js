@@ -21,6 +21,23 @@ var app = express();
 //   setTimeout(endBlink, 5000);
 
 // });
+// 19 data
+var gpio = require('rpi-gpio');
+gpio.setup(18, gpio.DIR_OUT);
+
+app.get('/on', function(req, res){
+	gpio.write(18, true, function(err) {
+        if (err) res.send("on error: " + err);
+        res.send('Pin 18 on done');
+    });
+});
+
+app.get('/off', function(req, res){
+	gpio.write(18, false, function(err) {
+        if (err) res.send("off error: " + err);
+        res.send('Pin 18 off done');
+    });
+});
 
 // reply to request with "Hello World!"
 app.get('/about', function (req, res) {

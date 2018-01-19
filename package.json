@@ -15,8 +15,7 @@
     "resin.io",
     "webserver",
     "nodejs",
-    "expressjs",
-    "onoff"
+    "expressjs"
   ],
   "author": "Shaun Mulligan <shaun@resin.io>",
   "license": "Apache-2.0",
@@ -25,6 +24,7 @@
   },
   "homepage": "https://github.com/resin-io-projects/simple-server-node#readme",
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "rpi-gpio": "^0.9.1"
   }
 }
