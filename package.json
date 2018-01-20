@@ -25,6 +25,6 @@
   "homepage": "https://github.com/resin-io-projects/simple-server-node#readme",
   "dependencies": {
     "express": "*",
-    "rpi-gpio"
+    "pi-pins": "*"
   }
 }
