@@ -27,4 +27,7 @@
     "express": "*",
     "rpio": "*"
   }
+  "scripts": {
+    "preinstall": "bash deps.sh"
+  }
 }
